@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fa-ir">
+  <link rel="shortcut icon" href="assets/img/bmi logo.png" type="image/png">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculation of body mass index</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+
+    }
+
+    body {
+      direction: rtl;
+      background-image: url(assets/img/back.jpg);
+      background-size: cover;
+    }
+
+    .bmi {
+      width: 70%;
+      margin: 0 auto;
+      border-radius: 20px;
+      margin-bottom: 70px;
+    }
+
+    .bmi img {
+      width: 100%;
+      display: block;
+    }
+
+    .mass-index {
+      width: 80%;
+      display: flex;
+
+      align-items: center;
+      margin: 0 auto 80px auto;
+    }
+
+    .box-vazn {
+      width: 50%;
+      text-align: center;
+    }
+
+    .box-ghad {
+      width: 50%;
+      text-align: center;
+    }
+
+    .box-img {
+      width: 70%;
+      margin: 0 auto;
+      margin-bottom: 40px;
+
+    }
+
+    .box-img .img {
+      aspect-ratio: 1/2;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .box-img .vazn {
+      background-image: url(assets/img/vaz.jpg);
+    }
+
+    .box-img .ghad {
+      background-image: url(assets/img/ghad.jpg);
+    }
+
+    .mass-index p {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .mass-index input,
+    .box-bmi input {
+      border: none;
+      outline: none;
+      box-shadow: rgb(220, 15, 15) 0px 3px 6px, rgb(227, 169, 33) 0px 3px 6px;
+      display: inline-block;
+      width: 30%;
+      padding: 25px 30px;
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+
+    .box-bmi {
+      width: 80%;
+      margin: 0 auto 50px auto;
+      text-align: center;
+    }
+
+    .box-img-bmi .img {
+      aspect-ratio: 1.7/1.1;
+      background-image: url(assets/img/fitness-and-exercise.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .box-img-bmi {
+      width: 100%;
+    }
+
+    .box-bmi input {
+      width: 45%;
+    }
+
+    p#finally {
+      text-align: center;
+      font-size: 50px;
+      margin-bottom: 35px;
+    }
+
+    .box-btn {
+      margin: 0 auto 10px auto;
+      width: 300px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 20px 40px;
+      background-color: rgb(255, 153, 0);
+      border: none;
+      border-radius: 5px;
+      font-size: 50px;
+      color: white;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .btn:hover {
+      background-color: rgba(245, 179, 92, 0.718);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bmi">
+    <img src="assets/img/bmi.jpg" alt="bmi" />
+  </div>
+  <div class="mass-index">
+    <div class="box-vazn">
+      <div class="box-img">
+        <div class="img vazn"></div>
+      </div>
+      <p>:Enter your weight</p>
+      <input type="text" name="vazn" id="vazn" />
+    </div>
+    <div class="box-ghad">
+      <div class="box-img">
+        <div class="img ghad"></div>
+      </div>
+      <p>: Enter your height</p>
+      <input type="text" name="ghad" id="ghad" />
+    </div>
+  </div>
+  <div class="box-bmi">
+    <div class="box-img-bmi">
+      <div class="img bmi" id="img-bmi"></div>
+    </div>
+    <input type="text" name="bmi" id="bmi" />
+  </div>
+  <p id="finally"></p>
+  <div class="box-btn">
+    <button onclick="BMI()" class="btn">BMI</button>
+  </div>
+  <!-- =================== start-js =================== -->
+  <script>
+    function BMI() {
+      var vazn = document.getElementById("vazn").value;
+      var ghad = document.getElementById("ghad").value;
+      var bmi = vazn / ghad ** 2;
+      document.getElementById("bmi").value = bmi;
+      if (bmi < 18.5) {
+        document.getElementById("finally").innerHTML =
+          "  !  your Under weight";
+        document.getElementById("finally")
+      } else if (bmi >= 20 && bmi <= 23) {
+        document.getElementById("finally").innerHTML =
+          "Your weight is normal";
+        document.getElementById("finally")
+      } else if (bmi >= 25 && bmi <= 29.9) {
+        document.getElementById("finally").innerHTML =
+          "You are overweight";
+        document.getElementById("finally")
+      } else if (bmi >= 30 && bmi <= 34.9) {
+        document.getElementById("finally").innerHTML = "Your fat";
+        document.getElementById("finally")
+      } else if (bmi >= 35) {
+        document.getElementById("finally").innerHTML =
+          "! wow You are obese";
+
+      }
+    }
+  </script>
+</body>
+
+</html>
