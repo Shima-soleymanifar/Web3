@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #modal {
+
+    display: none;
+    background-repeat: no-repeat;
+  }
+
+  #modal img {
+    width: 310px;
+    height: 350px;
+    margin-left: 40%;
+    margin-top: 50px;
+  }
+
+  button {
+    margin: 25px 260px;
+    padding: 15px 75px;
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #ffc05a 0, #ff5454 100%);
+    border: 0;
+    border-radius: 4px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 20px;
+    box-shadow: #e0d83c 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+    box-shadow: #e0b43c 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+</style>
+
+<body>
+  <button onclick="showModal()">Show</button>
+  <button onclick="hideModal()">Hide</button>
+  <div id="modal"><img src="ass/img/The_show_logo.jpg" alt=""></div>
+  <script>
+    function showModal() {
+      document.getElementById('modal').style.display = "block"
+    }
+    function hideModal() {
+      document.getElementById('modal').style.display = "none"
+    }
+  </script>
+
+</body>
+
+</html>
