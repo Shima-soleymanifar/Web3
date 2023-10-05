@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-image: url(assets/img/back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #content {
+    position: relative;
+    display: flex;
+  }
+
+  #content #showAside {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    padding: 15px 25px;
+    border-radius: 20PX;
+    font-size: 25px;
+    border: none;
+    box-shadow: rgba(0, 76, 255, 0.25) 0px 50px 100px -20px,
+      rgba(0, 221, 255, 0.3) 0px 30px 60px -30px,
+      rgba(10, 2, 255, 0.35) 0px -2px 6px 0px inset;
+  }
+
+  #content #showAside:hover {
+    box-shadow: rgba(0, 0, 255, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 255, 251, 0.3) 0px 18px 36px -18px inset;
+    color: white;
+  }
+
+  #aside {
+    width: 300px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    position: fixed;
+    left: -300px;
+  }
+
+  #aside .nav {
+    width: 100%;
+    height: 200px;
+    position: relative;
+  }
+
+  #aside #hide {
+    position: absolute;
+  }
+
+  #aside .nav>img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  #aside .overlay {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+
+  #aside .avatar>img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+  }
+
+  #aside .introduction {
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 10px;
+    color: #ffd900;
+    text-shadow: 3px 5px 2px #474747;
+  }
+  #aside .sidenav li {
+    list-style: none;
+    padding: 15px 88px;
+    font-size: 30px;
+  }
+
+  #aside .sidenav li:hover {
+    background-color: #006aff23;
+    cursor: pointer;
+  }
+
+  #aside .sidenav li {
+    font-size: 22px;
+    margin-right: 15px;
+  }
+
+  #mainContent {
+    width: calc(100% - 300px);
+    height: 100vh;
+    margin-left: 310px;
+  }
+</style>
+
+<body>
+  <main id="content">
+    <button id="showAside" onclick="showAside()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-justify-left"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+      </svg>
+    </button>
+    <aside id="aside">
+      <div class="nav">
+        <button id="hide" onclick="hideAside()">
+        </button>
+        <img src="assets/img/Background.jpg" alt="background" />
+        <div class="overlay">
+          <div class="avatar">
+            <img src="assets/img/avata.jpg" alt="avatar" />
+          </div>
+          <div class="introduction">
+            <h1>Sh.Soleymanifar</h1>
+            <h2>shimasoleymanifar@gmail.com</h2>
+          </div>
+          <div class="social">
+          </div>
+        </div>
+        <ul class="sidenav">
+          <li>Home</li>
+          <li>Blog</li>
+          <li>Services</li>
+          <li>Help</li>
+          <li>about us</li>
+          <li>contact us</li>
+        </ul>
+    </aside>
+    <section id="mainContent" onclick="offAside()"></section>
+  </main>
+
+  <script>
+    function showAside() {
+      document.getElementById("aside").style.left = "0";
+      document.getElementById("aside").style.transition = "0.5s";
+    }
+    function hideAside() {
+      document.getElementById("aside").style.left = "-300px";
+      document.getElementById("aside").style.transition = "0.5s";
+    }
+    function offAside() {
+      if (document.getElementById("aside").style.left == "0px") {
+        document.getElementById("aside").style.left = "-300px";
+        document.getElementById("aside").style.transition = "0.5s";
+      }
+    }
+  </script>
+</body>
+
+</html>
