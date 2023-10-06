@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Student {
+      constructor(fname, lname, age, city, riyazi, fizic, shimi, english, varzesh
+      ) {
+        this.fname = fname;
+        this.lname = lname;
+        this.age = age;
+        this.city = city;
+        this.riyazi = riyazi;
+        this.fizic = fizic;
+        this.shimi = shimi;
+        this.english = english;
+        this.varzesh = varzesh;
+
+      }
+      info() {
+        console.log(
+          `fname = ${this.fname}lname = ${this.lname}
+          age = ${this.age}
+          city = ${this.city}
+          riyazi = ${this.riyazi}
+          fizic = ${this.fizic}  
+          shimi = ${this.shimi}  
+          english = ${this.english}
+          varzesh = ${this.varzesh}`
+        );
+      }
+
+      form() {
+        return (
+          (this.riyazi +
+            this.fizic +
+            this.shimi +
+            this.english +
+            this.varzesh)
+        );
+      }
+    }
+    let std1 = new Student("shima", "soleymanifar", 27, "tehran", 15, 17, 18, 12, 19);
+    let std2 = new Student("ail", "ailzade", 18, 'karaj', 10, 15, 12, 17, 20);
+    let std3 = new Student("shamim", "sadeghi", 8, "ahwaz", 13, 14, 12, 19, 20);
+    std1.info();
+    console.log(std1);
+    console.log(std1.form());
+    std2.info();
+    console.log(std2);
+    console.log(std2.form());
+    std3.info();
+    console.log(std3);
+    console.log(std3.form());
+  </script>
+</body>
+
+</html>
