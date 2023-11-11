@@ -1,0 +1,127 @@
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chronometer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url(s/tn_WallpaperGram.IR_1643620260_9071.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #FFF;
+        }
+
+        .chronometer {
+            max-width: 85em;
+            min-width: 320px;
+            margin: 0 auto;
+            padding: 0 0.5em;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .box {
+            margin:100px auto;
+            width: 60%;
+            text-align: center;
+            border: 2px solid #FFF;
+            border-radius:30px;
+            padding: 50px;
+        }
+
+        button {
+            background: #00ff84;
+            border: 1px solid #FFF;
+            color: #FFF;
+            padding: 15px 35px;
+            margin: 0 5px;
+            border-radius: 5px;
+            font-size: 20px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        button:hover {
+            color:black;
+            background: #ccff00;
+        }
+
+        #time {
+            margin-bottom: 50px;
+            font-size: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chronometer">
+        <div class="box">
+            <div id="time">
+                <span id="minutes">00</span>
+                :
+                <span id="seconds">00</span>
+
+            </div>
+            <button onclick="start()">Start</button>
+            <button onclick="stop()">Stop</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        var min = document.getElementById('minutes');
+        var sec = document.getElementById('seconds');
+        var minutes = 0;
+        var seconds = 0;
+        var Interval;
+
+        function start() {
+            clearInterval(Interval);
+            Interval = setInterval(startTimer, 1000);
+        }
+
+        function stop() {
+            clearInterval(Interval);
+        }
+
+        function reset() {
+            clearInterval(Interval);
+            sec.innerHTML = '00';
+            min.innerHTML = '00';
+            minutes = 0;
+            seconds = 0;
+        }
+
+        function startTimer() {
+            seconds++;
+
+            if (seconds < 9) {
+                sec.innerHTML = "0" + seconds;
+            }
+
+            if (seconds > 9) {
+                sec.innerHTML = seconds;
+            }
+
+            if (seconds > 59) {
+                minutes++;
+                min.innerHTML = "0" + minutes;
+                seconds = 0;
+            }
+
+            if (minutes > 9) {
+                min.innerHTML = minutes;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
