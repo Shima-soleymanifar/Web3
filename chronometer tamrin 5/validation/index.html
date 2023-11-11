@@ -1,45 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vaildation</title>
     <style>
-        .error {
-            margin: 0;
-            padding: 0;
-            font-size: 20px;
-            color: red;
-            display: nones;
-        }
+      *{ margin: 0;
+        padding: 0;
+      box-sizing: border-box;}
+      body{
+        margin: 20PX;
+      }
+      input{
+        padding: 5px;
+      }
+      .error {
+        font-size: 25px;
+        color: red;
+        display: none;
+      }
+      button {margin: 20px;
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 30px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 10px 30px;
+  }
+}
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div>
-        <input type="text" name="fname">
-        <p class="error"></p>
+      First name :<input type="text" name="fname" />
+       Lastname :<input type="text"name="lname" />
+      Password :<input type="text" name="pasrd" />
+      <p class="error"></p>
     </div>
-    <button onclick="submitHandLer()">submit</button>
-
+    <button onclick="submitHandLer()">Submit</button>
 
     <script>
-        function submitHandLer() {
-            let fname = document.querySelector("[name=fname]");
-            let inputError = document.getElementsByClassName('error')[0];
-            if (fname.value.length < 4) {
-                inputError.innerHTML = "Please fill in correctly";
-                inputError.style.display = 'block';
-            }
-            else {
-                inputError.innerHTML = "Ok";
-                inputError.style.display = 'block';
-
-            }
+      function submitHandLer() {
+        let fname = document.querySelector("[name=fname]");
+        let lname = document.querySelector("[lastname=lname]");
+        let pasrd = document.querySelector("[password=pasrd]");
+        let inputError = document.getElementsByClassName("error")[0];
+        if (fname.value.length < 4) {
+          inputError.innerHTML = "Please fill in correctly";
+          inputError.style.display = "block";
+          inputError.style.color = "red";
+        } else {
+          inputError.innerHTML = "Ok";
+          inputError.style.display = "block";
+          inputError.style.color = "green";
         }
-
+        if (lname.value.length < 4) {
+          inputError.innerHTML = "Please fill in correctly";
+          inputError.style.display = "block";
+          inputError.style.color = "red";
+        } else {
+          inputError.innerHTML = "Ok";
+          inputError.style.display = "block";
+          inputError.style.color = "green";
+        }
+        if (pasrd.value.length < 8) {
+          inputError.innerHTML = "Please fill in correctly";
+          inputError.style.display = "block";
+          inputError.style.color = "red";
+        } else {
+          inputError.innerHTML = "Ok";
+          inputError.style.display = "block";
+          inputError.style.color = "green";
+        }
+      }
     </script>
-</body>
-
+  </body>
 </html>
