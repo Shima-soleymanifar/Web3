@@ -1,1 +1,133 @@
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #modal {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.432) 21, 121, 121;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1;
+      }
+      .content {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        margin: 15% auto;
+        width: 80%;
+        border: 1px solid red;
+        padding: 20px;
+      }
+      #close {
+        color: red;
+        font-size: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        top: 0;
+      }
+      button {
+        appearance: none;
+        background-color: #ff000086;
+        border-width: 0;
+        box-sizing: border-box;
+        color: #000000;
+        font-weight: bold;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Clarkson, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 1em;
+        margin: 15px;
+        opacity: 1;
+        outline: 0;
+        padding: 1.5em 2.2em;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        text-rendering: geometricprecision;
+        text-transform: uppercase;
+        transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1),
+          background-color 100ms cubic-bezier(0.694, 0, 0.335, 1),
+          color 100ms cubic-bezier(0.694, 0, 0.335, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: baseline;
+        white-space: nowrap;
+      }
+
+      button:before {
+        animation: opacityFallbackOut 0.5s step-end forwards;
+        backface-visibility: hidden;
+        background-color: rgba(0, 255, 64, 0.486);
+        clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translateZ(0);
+        transition: clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+          -webkit-clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        width: 100%;
+      }
+
+      button:hover:before {
+        animation: opacityFallbackIn 0s step-start forwards;
+        clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+      }
+
+      button:after {
+        background-color: #000000;
+      }
+
+      button span {
+        z-index: 1;
+        position: relative;
+      }
+     
+    </style>
+  </head>
+  <body>
+    <button id="open">open</button>
+    <div id="modal">
+      <div class="content">
+        <span id="close">X</span>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad ab
+          dolorem asperiores eveniet. Id quidem maxime minima, officiis nesciunt
+          cum exercitationem magni vitae. Veritatis fuga sequi iste laborum
+          illum itaque.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let modal = document.getElementById("modal");
+      let open = document.getElementById("open");
+      let close = document.getElementById("close");
+
+      open.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      close.onclick = function () {
+        modal.style.display = "none";
+      };
+    </script>
+  </body>
+</html>
